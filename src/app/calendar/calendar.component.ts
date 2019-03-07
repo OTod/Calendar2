@@ -26,8 +26,8 @@ export class CalendarComponent implements OnInit {
 
   calendar: Object[];
 
-  startDay: number = 0; //sunday
-  dayFormat: Object = { month: 'long', day: 'numeric' };
+  startDay: number = 1; //sunday
+  dayFormat: Object = { day: 'numeric' };
 
   selectedDay: {
     date: string,
@@ -49,7 +49,7 @@ export class CalendarComponent implements OnInit {
     ];
 
     this.languageForm = new FormGroup({
-      lang: new FormControl('ru-ru')
+      lang: new FormControl('en-en')
     })
 
     this.activityForm = new FormGroup({
@@ -101,6 +101,7 @@ export class CalendarComponent implements OnInit {
         date: iteratorDay.toLocaleDateString(this.languageForm.value.lang, this.dayFormat),
         year: iteratorDay.getFullYear(),
         month: iteratorDay.getMonth(),
+        weekday: iteratorDay.getDay(),
         dateInternational: dateHolder.toLocaleDateString('en-en', {day:'numeric', year: 'numeric', month:'long'}),
         fullDate: dateHolder
       }
@@ -111,12 +112,9 @@ export class CalendarComponent implements OnInit {
   }
 
   popupOpen(day) {
-    console.log(day);
     this.selectedDay = day;
-    console.log(this.selectedDay);
     document.getElementsByClassName('day-popup-wrapper')[0].classList.add('shown');
     document.getElementsByClassName('day-popup-wrapper')[0].classList.remove('hidden');
-
   }
 
   popupClose() {
@@ -140,20 +138,15 @@ export class CalendarComponent implements OnInit {
     this.agenda.addAgenda(obj);
     this.activityForm.reset();
     this.updateUi();
-
   };
 
   getAgenda(){
     this.agendaCurrent = this.agenda.getAgenda();
-    console.log(this.agendaCurrent);
   }
 
   removeActivity(date, activityID) {
     this.agenda.removeAgendaItem(date, activityID);
     this.updateUi();
-
   }
-
-
 
 }

@@ -1,21 +1,65 @@
 @import '../app.component'
 
 .calendarContainer
+    font-family: Roboto
     width: $calendar-width
     height: $calendar-height
     position: relative
     margin: 0 auto
     margin-bottom: 1em
-    .calendarHead
+    width: 100%
+    min-width: 900px
+    .calendarWrapper
+        width: 90%
+        margin-left: auto
+        margin-right: auto
         display: flex
-        .arrowLeft
+        
+    .calendarHead
+
+        background-color: $primary-light
+        padding: 1em 20px 1em 20px
+        font-size: 2em
+        color: white
+        .header-icon
             margin-right: auto
-            text-align: left
+            text-align: right
             cursor: pointer
-        .arrowRight
+            margin-top: auto
+            margin-bottom: auto
+        .header-arrows
             margin-left: auto
             text-align: right
             cursor: pointer
+            margin-top: auto
+            margin-bottom: auto
+            z-index: 3
+            .arrows-wrapper
+              
+                .arrowLeft, .arrowRight
+                    border-radius: 3px
+                    display: inline-block
+                    cursor: pointer
+                    box-sizing: border-box
+                    padding-left: 12px
+                    padding-right: 12px
+                    background-color: $primary-color
+                    margin-left: 2px
+                    margin-right: 2px
+        .header-text-wrapper
+            position: absolute
+            width: 100%
+            left: 0
+            z-index: 0
+            .headerText
+                width: 30%
+                border-radius: 5px
+                display: inline-block
+                background-color: $primary-color
+                text-align: center
+                margin-top: auto
+                margin-bottom: auto
+
     .calendarBody
         height: 90%
         ul
@@ -28,21 +72,55 @@
             position: relative
             flex-wrap: wrap
             justify-content: space-around
-            li
+            .dayHeader
                 width: 13%
                 margin: 0.5%
-                border: 1px solid black
                 box-sizing: border-box
+                font-weight: bold
+                text-align: right
+            .dayItem
+                width: 13%
+                min-height: 100px
+                background-color: rgba(0,0,0,0.05)
+                margin: 0.5%
+                box-sizing: border-box
+                border-radius: 3px
                 cursor: pointer
+                position: relative
+                .dayDate
+                    display: block
+                    text-align: right
+                    padding: 5px
+                    font-weight: bolder
+                .activityContainer
+                    padding: 3px
+                    margin-top: 15px
+                    font-size: lesser
+                    // position: absolute
+                    // bottom: 0
+                    // left: 0
+                    .activity
+                        display: block
+                        text-align: left
+                        margin: 1px
+                        margin-top: 4px
+                        background-color: #fff
+                        border-left: 1px solid red
+                        padding: 3px
 
 .day-shaded
     background-color: $day-shaded
+    font-weight: 100 !important
 
 .day-with-item
     background-color: $day-highlighted
 
 .day-current
     background-color: $day-current
+
+.weekend
+    color: red !important
+
 
 .day-popup-wrapper
     position: fixed
@@ -54,13 +132,13 @@
     flex-direction: column
     .day-popup-container
         margin: auto
-        background: $secondary-light
+        background: $primary-light
         display: inline-block
-        border: 3px solid $secondary-dark
+        border: 3px solid $primary-dark
         border-radius: 5px
         overflow: hidden
         .popup-header 
-            background: $secondary-color
+            background: $primary-color
             padding: 10px
         .popup-body
             padding: 10px
@@ -83,3 +161,10 @@
 .shown
     display: flex
 
+.language-form-container
+    text-align: left
+    select
+        width: 20%
+        background-color: $primary-light
+        border-radius: 3px
+        color: white

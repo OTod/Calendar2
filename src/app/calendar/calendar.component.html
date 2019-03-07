@@ -1,35 +1,51 @@
 <div class="calendarContainer">
-  <form [formGroup]="languageForm" (change)="updateUi()">
-    <select formControlName="lang">
-      <option *ngFor="let language of languages" [ngValue]="language.abbrev">
-        {{ language.name }}
-      </option>
-    </select>
-  </form>
-
-  <div class="calendarHead">
-    <div class="arrowLeft" (click)="prevMonth()"><i class="fa fa-arrow-left"></i></div>
-    <div class="headerText"> {{monthDisplayedString}}</div>
-    <div class="arrowRight" (click)="nextMonth()"><i class="fa fa-arrow-right"></i></div>
+  <div class="calendarHead ">
+    <div class="calendarWrapper">
+      <div class="header-icon"><i class="fa fa-calendar"> Calendar</i></div>
+      <div class="header-text-wrapper">
+        <div class="headerText"> {{monthDisplayedString}}</div>
+      </div>
+      <div class="header-arrows">
+        <div class="arrows-wrapper">
+          <div class="arrowLeft" (click)="prevMonth()"><i class="fa fa-angle-left"></i></div>
+          <div class="arrowRight" (click)="nextMonth()"><i class="fa fa-angle-right"></i></div>
+        </div>
+      </div>
+    </div>
   </div>
-  <div class="calendarBody">
+  <div class="calendarBody calendarWrapper">
     <ul>
-      <li *ngFor="let day of calendar" 
-      [class.day-shaded]="day.month !== monthDisplayedNumber"
-      [class.day-current]="day.date === dateOfTodayDayString && day.month === monthOfToday && day.year === yearOfToday"
-      [class.day-with-item]="agendaCurrent.hasOwnProperty(day.dateInternational)"
+      <li class="dayHeader">Mon</li>
+      <li class="dayHeader">Tue</li>
+      <li class="dayHeader">Wed</li>
+      <li class="dayHeader">Thur</li>
+      <li class="dayHeader">Fri</li>
+      <li class="dayHeader weekend">Sat</li>
+      <li class="dayHeader weekend">Sun</li>
 
-        (click)="popupOpen(day)">
-        {{day.date}}
-
-        <span class=""
-          *ngFor="let item of agendaCurrent[day.dateInternational]" >
-          {{item.activity}}
+      <li *ngFor="let day of calendar" class="dayItem" [class.day-shaded]="day.month !== monthDisplayedNumber"
+        [class.day-current]="day.date === dateOfTodayDayString && day.month === monthOfToday && day.year === yearOfToday"
+        [class.day-with-item]="agendaCurrent.hasOwnProperty(day.dateInternational)" (click)="popupOpen(day)">
+        <span [class.weekend]="(day.weekday === 6 || day.weekday === 0)" (click)="popupOpen(day)"
+          class="dayDate">{{day.date}}</span>
+        <div class="activityContainer">
+          <span class="activity" *ngFor="let item of agendaCurrent[day.dateInternational]">
+            {{item.activity}}
           </span>
+        </div>
       </li>
     </ul>
   </div>
 
+  <div class="language-form-container">
+    <form [formGroup]="languageForm" (change)="updateUi()">
+      <select formControlName="lang">
+        <option *ngFor="let language of languages" [ngValue]="language.abbrev">
+          {{ language.name }}
+        </option>
+      </select>
+    </form>
+  </div>
 </div>
 
 <div class="day-popup-wrapper hidden">
@@ -39,34 +55,27 @@
         {{selectedDay.date}}
       </span>
     </div>
-    <div class="popup-body" >
-
-      <form [formGroup]="activityForm"  (submit)="addActivities(activityForm)">
+    <div class="popup-body">
+      <form [formGroup]="activityForm" (submit)="addActivities(activityForm)">
         {{time}}
         <label for="time">
           <input formControlName="time" required type="time">
         </label>
         <label for="activity">
-          <input  formControlName="activity" required type="text" placeholder="enter name of activity">
+          <input formControlName="activity" required type="text" placeholder="enter name of activity">
         </label>
         <button>Add</button>
       </form>
-
       <div>
         <ul>
-          <li
-            *ngFor="let activity of agendaCurrent[selectedDay.dateInternational]">
+          <li *ngFor="let activity of agendaCurrent[selectedDay.dateInternational]">
             <span class="activityListed">{{activity.time}} : {{activity.activity}}</span>
-            
             <button class="removeButton" type="button"
               (click)="removeActivity(selectedDay.dateInternational,activity.actId)">remove</button>
-          
-            </li>
+          </li>
         </ul>
       </div>
       <button type="button" (click)="popupClose(activityForm)">Close</button>
     </div>
-
   </div>
-
 </div>
