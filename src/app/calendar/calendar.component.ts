@@ -28,6 +28,7 @@ export class CalendarComponent implements OnInit {
 
   startDay: number = 1; //sunday
   dayFormat: Object = { day: 'numeric' };
+  fullDayFormat: Object = {day:'numeric', year:'numeric', month:'long'};
 
   selectedDay: {
     date: string,
@@ -102,7 +103,9 @@ export class CalendarComponent implements OnInit {
         year: iteratorDay.getFullYear(),
         month: iteratorDay.getMonth(),
         weekday: iteratorDay.getDay(),
+
         dateInternational: dateHolder.toLocaleDateString('en-en', {day:'numeric', year: 'numeric', month:'long'}),
+        dateLocal:dateHolder.toLocaleDateString(this.languageForm.value.lang, this.fullDayFormat),
         fullDate: dateHolder
       }
       holdingTemporaryArray.push(obj);
