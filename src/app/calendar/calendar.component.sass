@@ -16,7 +16,6 @@
         display: flex
         
     .calendarHead
-
         background-color: $primary-light
         padding: 1em 20px 1em 20px
         font-size: 2em
@@ -35,7 +34,6 @@
             margin-bottom: auto
             z-index: 3
             .arrows-wrapper
-              
                 .arrowLeft, .arrowRight
                     border-radius: 3px
                     display: inline-block
@@ -59,6 +57,8 @@
                 text-align: center
                 margin-top: auto
                 margin-bottom: auto
+                font-size: 0.75em
+                padding: 5px
 
     .calendarBody
         height: 90%
@@ -132,28 +132,49 @@
     flex-direction: column
     .day-popup-container
         margin: auto
-        background: $primary-light
+        background: #fff
         display: inline-block
-        border: 3px solid $primary-dark
+        border: 2px solid $primary-dark
         border-radius: 5px
         overflow: hidden
         .popup-header 
             background: $primary-color
             padding: 10px
+            text-align: left
+            color: #fff
         .popup-body
             padding: 10px
+            text-align: right
             >*
                 margin: 10px
+
             .activityListed
                 margin-right: auto
+                
             .removeButton
                 margin-left: auto
+            .popup-button
+                color: #ffffff
+                border-radius: 5px
+                background-color: $primary-color
+                padding: 5px 10px 5px 10px 
+                box-sizing: border-box
+                width: 75px
+            .timeInputPopup
+                width: 10%
+                margin-right: 10px
+            .activityInputPopup
+                width: 68%
+
+
         ul
             margin: 0
             padding: 0
             list-style: none
             li
                 display: flex
+                border-bottom: 1px solid $primary-dark
+                
         
 .hidden
     display: none
