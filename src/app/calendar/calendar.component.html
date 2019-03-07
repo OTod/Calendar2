@@ -1,0 +1,72 @@
+<div class="calendarContainer">
+  <form [formGroup]="languageForm" (change)="updateUi()">
+    <select formControlName="lang">
+      <option *ngFor="let language of languages" [ngValue]="language.abbrev">
+        {{ language.name }}
+      </option>
+    </select>
+  </form>
+
+  <div class="calendarHead">
+    <div class="arrowLeft" (click)="prevMonth()"><i class="fa fa-arrow-left"></i></div>
+    <div class="headerText"> {{monthDisplayedString}}</div>
+    <div class="arrowRight" (click)="nextMonth()"><i class="fa fa-arrow-right"></i></div>
+  </div>
+  <div class="calendarBody">
+    <ul>
+      <li *ngFor="let day of calendar" 
+      [class.day-shaded]="day.month !== monthDisplayedNumber"
+      [class.day-current]="day.date === dateOfTodayDayString && day.month === monthOfToday && day.year === yearOfToday"
+      [class.day-with-item]="agendaCurrent.hasOwnProperty(day.dateInternational)"
+
+        (click)="popupOpen(day)">
+        {{day.date}}
+
+        <span class=""
+          *ngFor="let item of agendaCurrent[day.dateInternational]" >
+          {{item.activity}}
+          </span>
+      </li>
+    </ul>
+  </div>
+
+</div>
+
+<div class="day-popup-wrapper hidden">
+  <div class="day-popup-container">
+    <div class="popup-header">
+      <span>
+        {{selectedDay.date}}
+      </span>
+    </div>
+    <div class="popup-body" >
+
+      <form [formGroup]="activityForm"  (submit)="addActivities(activityForm)">
+        {{time}}
+        <label for="time">
+          <input formControlName="time" required type="time">
+        </label>
+        <label for="activity">
+          <input  formControlName="activity" required type="text" placeholder="enter name of activity">
+        </label>
+        <button>Add</button>
+      </form>
+
+      <div>
+        <ul>
+          <li
+            *ngFor="let activity of agendaCurrent[selectedDay.dateInternational]">
+            <span class="activityListed">{{activity.time}} : {{activity.activity}}</span>
+            
+            <button class="removeButton" type="button"
+              (click)="removeActivity(selectedDay.dateInternational,activity.actId)">remove</button>
+          
+            </li>
+        </ul>
+      </div>
+      <button type="button" (click)="popupClose(activityForm)">Close</button>
+    </div>
+
+  </div>
+
+</div>

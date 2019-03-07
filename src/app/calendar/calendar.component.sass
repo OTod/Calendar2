@@ -1,0 +1,85 @@
+@import '../app.component'
+
+.calendarContainer
+    width: $calendar-width
+    height: $calendar-height
+    position: relative
+    margin: 0 auto
+    margin-bottom: 1em
+    .calendarHead
+        display: flex
+        .arrowLeft
+            margin-right: auto
+            text-align: left
+            cursor: pointer
+        .arrowRight
+            margin-left: auto
+            text-align: right
+            cursor: pointer
+    .calendarBody
+        height: 90%
+        ul
+            margin: 0
+            padding: 0
+            list-style: none
+            display: flex
+            width: 100%
+            height: 100%
+            position: relative
+            flex-wrap: wrap
+            justify-content: space-around
+            li
+                width: 13%
+                margin: 0.5%
+                border: 1px solid black
+                box-sizing: border-box
+                cursor: pointer
+
+.day-shaded
+    background-color: $day-shaded
+
+.day-with-item
+    background-color: $day-highlighted
+
+.day-current
+    background-color: $day-current
+
+.day-popup-wrapper
+    position: fixed
+    background: rgba(0,0,0,0.5)
+    height: 100%
+    width: 100%
+    top: 0
+    left: 0
+    flex-direction: column
+    .day-popup-container
+        margin: auto
+        background: $secondary-light
+        display: inline-block
+        border: 3px solid $secondary-dark
+        border-radius: 5px
+        overflow: hidden
+        .popup-header 
+            background: $secondary-color
+            padding: 10px
+        .popup-body
+            padding: 10px
+            >*
+                margin: 10px
+            .activityListed
+                margin-right: auto
+            .removeButton
+                margin-left: auto
+        ul
+            margin: 0
+            padding: 0
+            list-style: none
+            li
+                display: flex
+        
+.hidden
+    display: none
+
+.shown
+    display: flex
+
