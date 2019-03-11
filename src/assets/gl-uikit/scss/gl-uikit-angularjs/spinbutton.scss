@@ -1,0 +1,126 @@
+.number-input-wrap  {
+  display: inline-block;
+  position: relative;
+  .main-input {
+    background: $gl-spinbutton-bg;
+    font-size: 12px;
+    width: 60px;
+    border: 1px solid $gl-spinbutton-border-color;
+    border-radius: $gl-spinbutton-border-radius;
+    text-align: right;
+    padding: 4px 20px 4px 4px;
+    height: 30px;
+  }
+  &.disable {
+    .main-input {
+      border: 1px solid $gl-spinbutton-disable-color;
+      color: $gl-spinbutton-disable-color;
+    }
+    .act-btn {
+      cursor: default;
+      border-left: 1px solid $gl-spinbutton-disable-color;
+      &.btn-up {
+        border-bottom: 1px solid $gl-spinbutton-disable-color;
+      }
+      .arrow-up {
+
+        border-bottom: $gl-spinbutton-arrow-size solid $gl-spinbutton-disable-color;
+      }
+      .arrow-down {
+        border-top: $gl-spinbutton-arrow-size solid $gl-spinbutton-disable-color;
+      }
+
+      &:hover {
+        .arrow-up {
+          border-bottom: $gl-spinbutton-arrow-size solid $gl-spinbutton-disable-color;
+        }
+        .arrow-down {
+          border-top: $gl-spinbutton-arrow-size solid $gl-spinbutton-disable-color;
+        }
+      }
+      &:active {
+        .arrow-up {
+          border-bottom: $gl-spinbutton-arrow-size solid $gl-spinbutton-disable-color;
+        }
+        .arrow-down {
+          border-top: $gl-spinbutton-arrow-size solid $gl-spinbutton-disable-color;
+        }
+      }
+    }
+
+  }
+
+  .act-btn {
+    position: absolute;
+    border-left: 1px solid $gl-spinbutton-border-color;
+    background: $gl-spinbutton-bg;
+    height: 14px;
+    width: 14px;
+    cursor: pointer;
+    &:hover {
+      .arrow-up {
+        border-bottom: $gl-spinbutton-arrow-size solid $gl-spinbutton-arrow-hover-color;
+      }
+      .arrow-down {
+        border-top: $gl-spinbutton-arrow-size solid $gl-spinbutton-arrow-hover-color;
+      }
+    }
+    &:active {
+      .arrow-up {
+        border-bottom: $gl-spinbutton-arrow-size solid $gl-spinbutton-arrow-active-color;
+      }
+      .arrow-down {
+        border-top: $gl-spinbutton-arrow-size solid $gl-spinbutton-arrow-active-color;
+      }
+    }
+  }
+  .arrow-up {
+    width: 0;
+    height: 0;
+    border-left: $gl-spinbutton-arrow-size solid transparent;
+    border-right: $gl-spinbutton-arrow-size solid transparent;
+
+    border-bottom: $gl-spinbutton-arrow-size solid $gl-spinbutton-arrow-color;
+
+  }
+
+  .arrow-down {
+    width: 0;
+    height: 0;
+    border-left: $gl-spinbutton-arrow-size solid transparent;
+    border-right: $gl-spinbutton-arrow-size solid transparent;
+
+    border-top: $gl-spinbutton-arrow-size solid $gl-spinbutton-arrow-color;
+  }
+  .arrow-right {
+    width: 0;
+    height: 0;
+    border-top: $gl-spinbutton-arrow-size solid transparent;
+    border-bottom: $gl-spinbutton-arrow-size solid transparent;
+
+    border-left:$gl-spinbutton-arrow-size solid $gl-spinbutton-arrow-color;
+  }
+
+  .arrow-left {
+    width: 0;
+    height: 0;
+    border-top: $gl-spinbutton-arrow-size solid transparent;
+    border-bottom: $gl-spinbutton-arrow-size solid transparent;
+
+    border-right:$gl-spinbutton-arrow-size solid $gl-spinbutton-arrow-color;
+  }
+  .btn-up{
+    border-radius: 0 $gl-spinbutton-border-radius 0 0;
+    top: 1px;
+    right: 1px;
+    border-bottom: 1px solid $gl-spinbutton-border-color;
+  }
+  .btn-down {
+    bottom: 1px;
+    right: 1px;
+    border-radius: 0 0 $gl-spinbutton-border-radius 0;
+  }
+  .arrow-down, .arrow-up {
+    margin: 4px 0 0 2px;
+  }
+}

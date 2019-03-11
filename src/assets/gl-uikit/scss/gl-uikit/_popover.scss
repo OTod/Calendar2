@@ -1,0 +1,6 @@
+$gl-popover-border: none;
+.popover {
+  border: $gl-popover-border;
+  border-radius: $gl-popover-border-radius;
+  box-shadow:$gl-popover-box-shadown;
+}

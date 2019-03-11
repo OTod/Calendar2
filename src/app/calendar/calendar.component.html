@@ -1,5 +1,5 @@
-<div class="calendarContainer">
-  <div class="calendarHead ">
+<div class="calendarContainer col-lg-60 col-md-60 col-sm-60">
+  <div class="calendarHead app-header">
     <div class="calendarWrapper">
       <div class="header-icon"><i class="fa fa-calendar"> Calendar</i></div>
       <div class="header-text-wrapper">
@@ -26,6 +26,7 @@
       <li *ngFor="let day of calendar" class="dayItem" [class.day-shaded]="day.month !== monthDisplayedNumber"
         [class.day-current]="day.date === dateOfTodayDayString && day.month === monthOfToday && day.year === yearOfToday"
         [class.day-with-item]="agendaCurrent.hasOwnProperty(day.dateInternational)" (click)="popupOpen(day)">
+
         <span [class.weekend]="(day.weekday === 6 || day.weekday === 0)" (click)="popupOpen(day)"
           class="dayDate">{{day.date}}</span>
         <div class="activityContainer">
@@ -62,7 +63,8 @@
           <input class="timeInputPopup" formControlName="time" required type="text" placeholder="Time">
         </label>
         <label for="activity">
-          <input class="activityInputPopup" formControlName="activity" required type="text" placeholder="Enter name of activity">
+          <input class="activityInputPopup" formControlName="activity" required type="text"
+            placeholder="Enter name of activity">
         </label>
         <button class="popup-button">Add</button>
       </form>
@@ -71,7 +73,7 @@
           <li *ngFor="let activity of agendaCurrent[selectedDay.dateInternational]">
             <span class="activityListed">{{activity.time}} : {{activity.activity}}</span>
             <button class="removeButton popup-button" type="button"
-              (click)="removeActivity(selectedDay.dateInternational,activity.actId)">remove</button>
+              (click)="removeActivity(selectedDay.dateInternational,activity.actId)">Remove</button>
           </li>
         </ul>
       </div>
@@ -79,3 +81,4 @@
     </div>
   </div>
 </div>
+

@@ -1,0 +1,641 @@
+.app-header {
+  background-color: $gl-header-bg;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.5);
+  min-height: $gl-header-height;
+  .gl-title-project {
+    font-size: 20px;
+    color: #e35929;
+    margin: 0 10px 0 0;
+    vertical-align: middle;
+    line-height: $gl-header-height;
+  }
+  .app-header-navbar {
+    display: inline-block;
+    vertical-align: middle;
+    .gl-nav-tab-d {
+      box-shadow: none;
+    }
+  }
+  .gl-logo {
+    background: url("#{$gl-image-path}logo.svg") 0 50% no-repeat;
+    margin: 0 10px 0 20px;
+    display: inline-block;
+    vertical-align: middle;
+    width: 180px;
+    height: 60px;
+  }
+  .btn {
+    background: transparent;
+    box-shadow: none;
+    border: none;
+    font-size: 28px;
+    color: #FFF;
+    padding: 0;
+    &:active {
+      box-shadow: none;
+    }
+  }
+  .dropdown-menu {
+    left: inherit;
+    right: 0;
+    &:before {
+      position: absolute;
+      top: -7px;
+      right: 12px;
+      display: inline-block;
+      border-right: 7px solid transparent;
+      border-bottom: 7px solid #ccc;
+      border-left: 7px solid transparent;
+      border-bottom-color: rgba(0, 0, 0, 0.2);
+      content: '';
+    }
+    &:after {
+      position: absolute;
+      top: -6px;
+      right: 13px;
+      display: inline-block;
+      border-right: 6px solid transparent;
+      border-bottom: 6px solid #ffffff;
+      border-left: 6px solid transparent;
+      content: '';
+    }
+  }
+
+  //.user-info-list
+  .user-info-list {
+    float: right;
+    display: table;
+    margin: 0 10px 0 0;
+    .user-btn {
+      background: transparent;
+      width: $gl-user-logo-xs-size;
+      height: $gl-user-logo-xs-size;
+      padding: 0;
+      border: none;
+      img {
+        vertical-align: initial;
+      }
+    }
+    > .btn-group {
+      display: table-cell;
+      height: $gl-header-height;
+    }
+    .dropdown-menu {
+      > li {
+        .icon-list {
+          vertical-align: middle;
+          margin: 0 5px 0 0;
+        }
+        > span {
+          padding: 0 0 0 15px;
+        }
+        a {
+          padding: 5px 15px;
+          &:hover {
+            background-color: #ddd !important;
+          }
+        }
+      }
+    }
+  }
+
+  .app-services-header-cont {
+    display: table;
+    float: right;
+    margin: 0 20px;
+
+    .dropdown-menu {
+      left: inherit;
+      right: -70px;
+      margin: 0;
+      padding: 0;
+      background-color: $gl-service-header-menu-bg;
+      border: none;
+      border-radius: 0;
+
+      &:before {
+        top: -10px;
+        right: 74px;
+        border-right: 10px solid transparent;
+        border-bottom: 10px solid #ccc;
+        border-left: 10px solid transparent;
+        border-bottom-color: rgba(0, 0, 0, 0.2);
+      }
+      &:after {
+        top: -10px;
+        right: 74px;
+        border-right: 10px solid transparent;
+        border-bottom: 10px solid $gl-service-header-menu-bg;
+        border-left: 10px solid transparent;
+      }
+    }
+    .gl-service-wrap {
+      overflow-y: auto;
+      padding: $gl-default-padding $gl-default-padding 0;
+      width: $gl-service-header-width;
+      margin: 5px 0;
+
+    }
+    h4 {
+      color: $gl-service-header-color;
+      margin-bottom: $gl-default-margin;
+      font-family: "OpenSans-Bold";
+      font-size: 14px;
+    }
+    > .btn-group {
+      display: table-cell;
+      height: $gl-header-height;
+    }
+
+    .gl-service-list {
+      > li {
+        text-align: center;
+        margin-bottom: $gl-default-margin;
+        a {
+          .service-logo-wrap {
+            width: $gl-service-header-logo-size;
+            height: $gl-service-header-logo-size;
+            margin: 0 auto $gl-default-margin/2;
+            > img {
+              width: 100%;
+              border-radius: 0;
+              vertical-align: top;
+            }
+          }
+          .service-name {
+            color: $gl-service-header-name-color;
+            font-size: 11px;
+            text-align: center;
+          }
+        }
+        @each $class, $img in $gl-header-service-item {
+          #{$class} {
+            .service-logo-wrap {
+              background-image: url(#{$img});
+              background-size: contain;
+              background-repeat: no-repeat;
+            }
+          }
+        }
+
+        .service-logo-wrap {
+          color: #FFFFFF;
+          font-size: 34px;
+        }
+
+        &.clear-divider {
+          clear: both;
+          margin-bottom: 0;
+        }
+      }
+    }
+    .toggle-btn {
+      display: block;
+      text-align: center;
+      width: 100%;
+      background-color: transparent;
+      border: none;
+      > i {
+        color: #878A8D;
+      }
+      &:focus {
+        outline: 0 !important;
+      }
+    }
+    @include app-service-list(#4a4a4a);
+
+    .gl-service-wrap {
+      margin: 0;
+    }
+    .gl-service-list {
+      > li {
+        &.gl-service-divider {
+          @include clearfix();
+          margin: 0;
+        }
+      }
+    }
+    .app-services-btn {
+      border: none;
+    }
+  }
+
+  .app-notification-list {
+    display: table;
+    float: right;
+    margin: 0 0 0 $gl-default-margin;
+
+    > .btn-group {
+      display: table-cell;
+      height: $gl-header-height;
+    }
+    @include app-service-list(#4a4a4a);
+    .app-notification-btn {
+      border: none;
+      padding: 0;
+      position: relative;
+    }
+
+    .note-balance {
+      background-color: $gl-primary-color;
+      display: inline-block;
+      width: 18px;
+      height: 18px;
+      position: absolute;
+      border-radius: 50%;
+      color: #FFFFFF;
+      font-size: 9px;
+      line-height: 17px;
+      text-align: center;
+      bottom: 6px;
+      right: -6px;
+    }
+    .app-list {
+      font-size: 12px;
+      width: 440px;
+      > li {
+        padding: 10px 20px;
+        margin: 20px 0;
+        .service-item {
+          .service-avatar {
+            img {
+              width: $gl-user-logo-xs-size;
+              height: $gl-user-logo-xs-size;
+            }
+          }
+          .service-name {
+            padding: 0 0 0 20px;
+            position: relative;
+            > h5 {
+              overflow: hidden;
+              font-weight: bold;
+              width: 270px;
+              margin: 0 0 10px;
+            }
+            .date {
+              font-size: 10px;
+              color: #bdbcbc;
+              position: absolute;
+              right: 10px;
+              top: 0px;
+            }
+            > p {
+              span {
+                font-weight: 600;
+              }
+            }
+          }
+        }
+        &.got-it-btn {
+          text-align: right;
+          margin: -20px 0 0;
+          button {
+            background: none;
+            border: none;
+          }
+        }
+      }
+    }
+    .note-list {
+      width: 360px;
+      overflow: auto;
+      max-height: 370px;
+      > li {
+        border-bottom: 1px solid $gl-text-color-grey;
+        position: relative;
+        padding: $gl-default-margin/2;
+        margin: 0;
+        &:last-child {
+          border-bottom: none;
+        }
+        &:hover {
+          background-color: $gl-text-color-lightGrey;
+          .close-btn {
+            display: block;
+          }
+        }
+        .close-btn {
+          cursor: pointer;
+          display: none;
+          color:$gl-text-color;
+          font-size: $gl-font-semi-small-size;
+          top: $gl-default-margin/2;
+          right: $gl-default-margin/2;
+          border: none;
+          position: absolute;
+          z-index: 10;
+        }
+        .note-data {
+          .title-wrap {
+            width: calc(100% - 80px);
+          }
+          .title {
+            font-size: $gl-font-base-size;
+            font-weight: bold;
+            margin: 0;
+            margin-right: $gl-default-margin/2;
+            display: inline-block;
+          }
+          .date {
+            display: inline-block;
+            font-size: $gl-font-semi-small-size;
+            color: $gl-text-color-grey;
+            font-weight: normal;
+          }
+          .desc {
+            color: $gl-text-color-darkGrey;
+            font-size: $gl-font-semi-small-size;
+            width: calc(100% - 80px);
+          }
+          .action {
+            position: absolute;
+            right: 0;
+            bottom: 0px;
+            padding: $gl-default-margin/4;
+          }
+        }
+        @include gl-logo-change-mixin($gl-user-logo-xxs-size, $gl-default-margin/2);
+      }
+    }
+  }
+
+  //NAVBAR MOBILE
+  .navbar-toggle {
+    float: left;
+    background: url('#{$gl-image-path}menu.svg') no-repeat;
+    vertical-align: middle;
+    margin: 10px 0px 0 10px;
+    width: 40px;
+    height: 40px;
+  }
+  .app-navbar-modile {
+    &.navbar-collapse {
+      background-color: $gl-header-bg;
+      position: relative;
+      z-index: 10;
+      width: 100%;
+      > ul {
+        > li {
+          > a {
+            color: $gl-nav-tab-link-color-d;
+            padding: 10px 40px;
+          }
+          &.active {
+            > a {
+              font-weight: bold;
+              color: $gl-primary-color;
+            }
+          }
+        }
+      }
+    }
+    @include app-service-list($gl-nav-tab-link-color-d);
+    .app-list {
+      &:before, &:after {
+        display: none;
+      }
+    }
+  }
+  .dropdown-menu {
+    @include gl-arrow-dropdown()
+  }
+}
+
+// HEADER search
+.app-header-search {
+  width: 600px;
+  float: right;
+  display: table;
+
+  .gl-search-form {
+    width: 100%;
+    display: table-cell;
+    height: 60px;
+    vertical-align: middle;
+
+    .gl-search-wrap {
+      position: relative;
+      text-align: right;
+      .btn {
+        position: absolute;
+        top: 0;
+        right: 0;
+      }
+      .btn-clear {
+        display: none;
+        z-index: 10;
+      }
+      input {
+        background: transparent;
+        border: none;
+        border-radius: 0;
+        border-bottom: 1px solid transparent;
+        display: inline-block;
+        color: #FFF;
+        height: 40px;
+        padding-right: 50px;
+        text-align: right;
+        position: relative;
+        z-index: 5;
+        box-shadow: none;
+        -webkit-transition: width 300ms linear, border-color 300ms ease;
+        -webkit-transition-delay: 100ms; /* Safari */
+        transition: width 300ms linear, border-color 300ms ease;
+        transition-delay: 100ms;
+
+        &:hover {
+          border-color: #fff;
+          width: 100%;
+          cursor: pointer;
+          text-align: left;
+        }
+        &:focus {
+          border-color: #fff;
+          width: 100%;
+          cursor: text;
+          text-align: left;
+          box-shadow: none;
+        }
+      }
+    }
+  }
+  &.active {
+    .gl-search-wrap {
+      input {
+        border-color: #fff;
+        width: 100%;
+        cursor: text;
+        text-align: left;
+      }
+      .btn-clear {
+        display: inline-block;
+      }
+      .btn-srch {
+        display: none;
+      }
+    }
+  }
+  .dropdown-menu {
+    margin-top: 15px;
+    &:before, &:after {
+      display: none;
+    }
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .app-header {
+    .navbar-toggle {
+      width: 25px;
+      height: 20px;
+      background-color: #ffffff;
+    }
+
+    #app-header-xs-navbar {
+      display: none !important;
+    }
+  }
+
+}
+
+@media only screen and (min-width: 768px) and (max-width: 992px) {
+  .app-header {
+    .app-header-search {
+      .gl-search-form {
+        .gl-search-wrap {
+          input {
+            padding-right: 30px;
+          }
+          .btn {
+            top: 6px;
+          }
+        }
+      }
+
+    }
+    .btn {
+      font-size: 20px;
+    }
+    .gl-title-project {
+      font-size: 14px;
+    }
+    .app-notification-list {
+      margin: 0 0 0 5px;
+    }
+
+    .app-services-header-cont {
+      margin: 0 5px;
+      .dropdown-menu {
+        right: -35px;
+        &:before {
+          right: 40px;
+        }
+        &:after {
+          right: 40px;
+        }
+      }
+    }
+    .user-info-list {
+      .user-btn {
+        width: $gl-user-logo-xxs-size;
+        height: $gl-user-logo-xxs-size;
+      }
+    }
+    .gl-logo {
+      width: 110px;
+      margin-left: 5px;
+    }
+  }
+
+  .app-header-navbar {
+    font-size: 12px;
+    .gl-nav-tab-d > li > a {
+      padding: 20px 5px;
+    }
+  }
+  .app-header-search {
+    width: 90px;
+  }
+}
+
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width: 992px) {
+  .app-header-search {
+    width: 240px;
+  }
+  .app-header-navbar {
+    font-size: 13px;
+  }
+  .app-header {
+    .gl-logo {
+      width: 150px;
+    }
+  }
+}
+
+/* Large Devices, Wide Screens */
+@media only screen and (min-width: 1440px) {
+  .app-header-search {
+    width: 400px;
+  }
+}
+
+@media only screen and (min-width: 1620px) {
+  .app-header-search {
+    width: 500px;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+
+  .app-header {
+    .gl-title-project {
+      display: none;
+    }
+    .app-header-navbar, .user-info-list, .app-notification-list, .app-services-header-cont {
+      display: none;
+    }
+    .app-header-search {
+      margin: 0 5px 0 0;
+      width: calc(100% - 300px);
+      ::-webkit-input-placeholder { /* WebKit browsers */
+        color: transparent;
+      }
+      :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+        color: transparent;
+      }
+      ::-moz-placeholder { /* Mozilla Firefox 19+ */
+        color: transparent;
+      }
+      :-ms-input-placeholder { /* Internet Explorer 10+ */
+        color: transparent;
+      }
+
+      textarea::-webkit-input-placeholder { /* WebKit browsers */
+        color: transparent;
+      }
+      textarea:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+        color: transparent;
+      }
+      textarea::-moz-placeholder { /* Mozilla Firefox 19+ */
+        color: transparent;
+      }
+      textarea:-ms-input-placeholder { /* Internet Explorer 10+ */
+        color: transparent;
+      }
+    }
+  }
+}
+/* Small Devices, Mobile */
+@media only screen and (max-width: 425px) {
+  .app-header {
+    .gl-logo {
+      width: 100px;
+    }
+    .app-header-search {
+      width: calc(100% - 195px);
+    }
+  }
+}
+

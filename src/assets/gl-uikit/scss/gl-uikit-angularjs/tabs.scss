@@ -1,0 +1,48 @@
+.gl-tab {
+  border: none;
+  margin: 5px 5px;
+  font-size: 14px;
+  .tab-content { margin-top: 10px; }
+  .nav-tabs { border: none; }
+
+  li.gl-tab-item {
+    &.active{
+      border: none;
+      border-bottom: 3px solid $gl-tabs-primary-color;
+      > a {
+        color: $gl-tabs-primary-color;
+        font-weight: 700;
+        border: none;
+      }
+    }
+    a { border:none;}
+  }
+}
+//for Angular Tab
+.gl-abs-tab-l,
+.gl-abs-tab-d {
+  margin: 0;
+  >.nav-tabs {
+    background-color: $gl-nav-tab-background-l;
+    box-shadow: $gl-nav-tab-box-shasow-l;
+    li.gl-tab-item {
+      height: $gl-tabs-height;
+      line-height: $gl-tabs-height;
+      &:hover{
+        background-color: $gl-nav-tab-link-hover-bg-l;
+        a {
+          text-decoration: none;
+          background-color:transparent;
+        }
+      }
+      a {
+        cursor: pointer;
+        line-height: normal;
+        text-align: center;
+        display: inline-block;
+        vertical-align: middle;
+      }
+    }
+  }
+}
+

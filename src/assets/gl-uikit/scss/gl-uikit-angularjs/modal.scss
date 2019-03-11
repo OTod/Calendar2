@@ -1,0 +1,60 @@
+.modal {
+  overflow-y: auto;
+  .modal-dialog {
+    background : $gl-modal-bg-color;
+    box-shadow : $gl-modal-box-shadow;
+  }
+  .modal-content {
+    position: relative;
+    border: none;
+    border-radius: inherit;
+    box-shadow: none;
+    color: $gl-modal-text-color;
+    padding: $gl-modal-content-padding;
+
+    .modal-header {
+      padding: 0;
+      border-bottom: none;
+      margin: 0 0 $gl-default-margin;
+    }
+    .title-popup {
+      font-weight: 600;
+      font-size: $gl-modal-header-font-size;
+      color: $gl-modal-header-color;
+      margin: 0;
+    }
+    .close-btn {
+      background: url("#{$gl-angular-image-path}close-icon.svg") 0 0 no-repeat;
+      border: none;
+      width: 16px;
+      height: 16px;
+      position: absolute;
+      right: 20px;
+      top: 20px;
+    }
+    .modal-body{
+      padding: 0;
+      textarea {
+        min-height: 80px;
+        border-radius: 2px;
+        border: solid 1px #979797;
+        width: 100%;
+        padding: 5px 10px;
+        resize: none;
+
+      }
+      margin: 0 0 $gl-default-margin;
+    }
+
+    .modal-footer {
+      padding: 0;
+      border-top: none;
+      >.btn {
+        @include action-btn($gl-modal-action-btn-width, $gl-modal-action-btn-height, $gl-modal-action-btn-padding);
+        font-size: $gl-modal-action-btn-font-size;
+      }
+    }
+
+  }
+}
+

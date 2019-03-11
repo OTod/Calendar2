@@ -1,0 +1,104 @@
+// simple mixin for generating btn with diffrent colors
+@mixin gl-base-input($color, $focused, $box-shadow) {
+
+  border-radius: 2px;
+  color: $color;
+  border: solid 1px $color;
+
+  &.focus,
+  &:active,
+  &:focus {
+   border-color: $focused !important;
+   box-shadow: $box-shadow;
+  }
+
+  @include gl-disabled-helper($gl-input-disabled-color);
+}
+
+@mixin placeholder-color($color) {
+  &::-webkit-input-placeholder {
+      color: $color;
+  }
+  &:-moz-placeholder {
+    color: $color;
+    opacity:  1;
+  }
+  &::-moz-placeholder {
+    color: $color;
+    opacity:  1;
+  }
+  &:-ms-input-placeholder {
+    color: $color;
+  }
+}
+
+// main form input
+.gl-input-default {
+  // extend from base class
+  @include gl-base-input($gl-input-color, $gl-input-focused-color, none);
+  @include gl-disabled-helper($gl-input-disabled-color);
+}
+
+//mandatory field
+.gl-field-mandatory {
+  &:after {
+    content: " *";
+    font-size: 14px;
+    vertical-align: top;
+    color: $gl-error-color;
+  }
+
+}
+// error form input
+.gl-input-error {
+  @include placeholder-color($gl-input-error-state);
+  @include gl-base-input($gl-input-error-state, $gl-input-error-state, none);
+  @include gl-disabled-helper($gl-input-disabled-color);
+}
+
+.gl-dropdown {
+  &.open,
+  &[data-state='open'] {
+    & > .gl-dropdown-trigger > .caret {
+      transform: rotate(180deg);
+    }
+  }
+  // dropdown styles
+  .gl-dropdown-trigger {
+    border-radius: 2px;
+    padding: 6px 17px;
+    background-color: #ffffff;
+    border: solid 1px #898989;
+    position: relative;
+    &:focus,
+    &:active {
+      border: solid 1px #898989;
+      box-shadow: none;
+    }
+    .caret {
+      position: absolute;
+      top: 50%;
+      right: 6px;
+      margin: -1px 0 0 0;
+    }
+  }
+  // dropdown menu style
+  .gl-dropdown-menu {
+    & > .gl-dropdown-item {
+      padding: 6px 17px;
+      &:hover {
+        background-color: #f2f2f2;
+      }
+    }
+  }
+  //dropdown error
+  &.gl-dropdown-error {
+    .gl-dropdown-trigger {
+      color: $gl-error-color;
+      border: solid 1px $gl-error-color;
+    }
+  }
+  @include gl-disabled-helper(#898989);
+}
+
+

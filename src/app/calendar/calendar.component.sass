@@ -116,7 +116,7 @@
     background-color: $day-highlighted
 
 .day-current
-    background-color: $day-current
+    background-color: $day-current !important
 
 .weekend
     color: red !important
@@ -130,27 +130,31 @@
     top: 0
     left: 0
     flex-direction: column
+    z-index: 3
     .day-popup-container
         margin: auto
         background: #fff
         display: inline-block
-        border: 2px solid $primary-dark
+        // border: 2px solid $primary-dark
         border-radius: 5px
         overflow: hidden
         .popup-header 
             background: $primary-color
-            padding: 10px
+            padding: 15px
             text-align: left
             color: #fff
+            font-family: Roboto
         .popup-body
-            padding: 10px
+            padding: 10px 15px 0px 15px
             text-align: right
             >*
                 margin: 10px
 
             .activityListed
                 margin-right: auto
-                
+                border-bottom: 1px solid $secondary-dark
+                text-align: left
+                width: 100%
             .removeButton
                 margin-left: auto
             .popup-button
@@ -159,12 +163,14 @@
                 background-color: $primary-color
                 padding: 5px 10px 5px 10px 
                 box-sizing: border-box
-                width: 75px
+                min-width: 75px
+                border: none
+                margin-left: 15px
             .timeInputPopup
                 width: 10%
                 margin-right: 10px
             .activityInputPopup
-                width: 68%
+                width: 65%
 
 
         ul
@@ -173,7 +179,7 @@
             list-style: none
             li
                 display: flex
-                border-bottom: 1px solid $primary-dark
+                margin-bottom: 2px
                 
         
 .hidden

@@ -1,0 +1,83 @@
+
+// path for img
+$gl-angular-image-path: "../img/" !default;
+
+// base variables for datepicker
+$gl-datepicker-bg-color:#ffffff;
+$gl-datepicker-base-color:#626262;
+$gl-datepicker-disabled-color:#afaeae;
+$gl-datepicker-hover-color:lighten($gl-datepicker-disabled-color, 15% );
+$gl-datepicker-active-color:#ff5722;
+
+// base variables for modal window
+$gl-modal-content-padding: 20px !default;
+$gl-modal-text-color: #58666E !default;
+$gl-modal-header-font-size:20px !default;
+$gl-modal-header-color:#58666E !default;
+$gl-modal-bg-color: #FFFFFF !default;
+$gl-modal-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.25) !default;
+
+$gl-modal-action-btn-height:28px !default;
+$gl-modal-action-btn-width: 80px !default;
+$gl-modal-action-btn-padding: 0 15px !default;
+$gl-modal-action-btn-font-size: 10px !default;
+
+
+// base variables for carousel
+$gl-carousel-control-width: 10%;
+$gl-carousel-control-type: inline-block;
+
+$gl-carousel-control-chevron-w: 20px;
+$gl-carousel-control-chevron-h: 20px;
+$gl-carousel-control-margin-l: 0 0 0 -10px;
+$gl-carousel-control-margin-r: 0 -10px 0 0;
+
+$gl-carousel-indicators-pos:2px;
+$gl-carousel-indicators-margin:0 10px;
+$gl-carousel-indicators-border: none;
+$gl-carousel-indicators-size: 8px;
+
+$gl-carousel-indicators-size: 8px;
+$gl-carousel-indicators-bg: rgba(255, 255, 255, 0.45);
+$gl-carousel-indicators-active-bg: #ffffff;
+$gl-carousel-indicators-active-shadow: 0px 1px 3px rgba(0, 0, 0, 0.75);
+
+// Tabs
+$gl-tabs-primary-color: #FF5722 !default;
+$gl-tabs-height: 60px !default;
+// Navigation tab light theme
+$gl-nav-tab-background-l:#ffffff;
+$gl-nav-tab-box-shasow-l:0 1px 3px 0 rgba(0, 0, 0, 0.5);
+$gl-nav-tab-link-hover-bg-l:#f2f2f2;
+
+// gl-nav-snake dark theme
+$gl-nav-snake-type-d: d;
+$gl-nav-snake-background-d: #424143;
+$gl-nav-snake-box-shasow-d:0 1px 3px 0 rgba(0, 0, 0, 0.5);
+$gl-nav-snake-item-bg-active-d: #333333;
+$gl-nav-snake-item-width-d:60px;
+$gl-nav-snake-item-height-d: $gl-nav-snake-item-width-d;
+$gl-nav-snake-link-color-d: #b4b6bd;
+$gl-nav-snake-link-fontsize-d:16px;
+$gl-nav-snake-link-active-d: #ffffff;
+
+// base variables for spinbutton
+$gl-spinbutton-bg: #fff;
+$gl-spinbutton-border-color: #898989;
+$gl-spinbutton-arrow-color:#898989;
+$gl-spinbutton-arrow-size:4px;
+$gl-spinbutton-arrow-hover-color:#616161;
+$gl-spinbutton-arrow-active-color:#f27038;
+$gl-spinbutton-border-radius:2px;
+$gl-spinbutton-disable-color:#bdbcbc;
+
+// base initial for avatar
+$gl-avatar-size:auto;
+$gl-avatar-br: 50%;
+// Alerts variables
+$gl-alerts-success-color: #86c640;
+$gl-alerts-danger-color: #d0021b;
+$gl-alerts-warning-color: #f37136;
+$gl-alerts-padding: 10px 20px;
+$gl-alerts-height-max: 120px;
+

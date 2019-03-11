@@ -1,0 +1,123 @@
+.gl-label-list {
+  >li {
+    margin: 0 0 $gl-default-margin;
+    >label {
+      width: 120px;
+      padding: 0 $gl-default-margin 0 0;
+      font-size: $gl-default-font-size;
+      font-style: italic;
+      line-height: $gl-default-font-size;
+    }
+    > span {
+      font-size: $gl-default-font-size;
+      font-style: oblique;
+    }
+    .gl-dropdown {
+      display: inline-block;
+      .dropdown-toggle {
+        width: 180px;
+      }
+      button {
+        text-align: left;
+      }
+    }
+    input, textarea {
+      display: inline-block;
+      width: 100%;
+      max-width: 600px;
+    }
+    textarea {
+      resize: none;
+      vertical-align: middle;
+      min-height: 80px;
+      border-radius: 2px;
+      border: solid 1px #979797;
+      padding: 5px 10px;
+    }
+  }
+}
+
+.gl-edge-list {
+  margin: 0;
+  padding: 0;
+  li {
+    text-align: right;
+    font-weight: 600;
+    label{
+      font-size: 14px;
+      font-weight: 300;
+      float: left;
+      text-align: left;
+      color: $gl-link-color;
+      margin: 0 $gl-default-margin 0 0;
+    }
+    a {
+      font-weight: 600;
+    }
+  }
+}
+
+.gl-icon-list {
+  margin: 0;
+  padding: 0;
+  li {
+    a {
+      font-weight: 600;
+      [class^="glicon-"] {
+        vertical-align: middle;
+      }
+    }
+  }
+}
+
+.gl-avatar-wrap {
+  .avatar-label {
+    margin: 0 0 $gl-default-margin/2;
+    font-size: $gl-default-font-size;
+    color: #999999;
+  }
+  @include gl-avatar-list(30px, 30px, true);
+}
+
+
+.gl-toggle-view-list {
+  height: $gl-toggle-list-size;
+  > li {
+    display: inline-block;
+    margin-right:$gl-toggle-list-margin;
+    &:last-child {
+      margin-right:0;
+    }
+    .view-btn {
+      display: inline-block;
+      border: none;
+      background: transparent;
+      padding: 0;
+      font-size: $gl-toggle-list-size;
+      color: $gl-default-color;
+      &:hover {
+        color: $gl-default-hover-color;
+      }
+      &:active {
+        color:$gl-default-active-color;
+
+      }
+      &[disabled="disabled"] {
+        color: $gl-default-desabled-color;
+      }
+      &.active {
+        color: $gl-primary-color;
+        &:hover {
+          color: $gl-primary-hover-color;
+        }
+        &:active {
+          color:$gl-primary-active-color;
+
+        }
+        &[disabled="disabled"] {
+          color: $gl-primary-desabled-color;
+        }
+      }
+    }
+  }
+}

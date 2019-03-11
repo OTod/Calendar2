@@ -1,0 +1,213 @@
+// helper for generation timeline
+@mixin timeline-helper($color, $display, $hoverColor) {
+  cursor: pointer;
+  &:before {
+    background: $color;
+  }
+  .reserved-title {
+    display: $display;
+  }
+   &:hover {
+    background: $hoverColor;
+   }
+}
+
+// animation helper
+@mixin animation-helper($time-function, $time) {
+  $animation-prefixes: ('-webkit-', '-moz-', '-o-', '');
+  @each $prefix in $animation-prefixes {
+    #{$prefix}transition: all $time-function $time;
+  }
+}
+
+// base extendable class for all types of timelines
+.__gl-timeline-base {
+  .gl-timeline-list {
+    .gl-timeline-item {
+      padding: $gl-timeline-item-padding;
+      border-color: $gl-timeline-item-border-color;
+      .timeline-item-cont {
+        border-style: solid;
+        border-width: 0 0 0 2px;
+        padding: $gl-timeline-item-cont-padding;
+      }
+      &:before {
+        float: left;
+        position: relative;
+        top: 10px;
+        right: 4px;
+        width: $gl-timeline-circle-params;
+        height: $gl-timeline-circle-params;
+        border-style: solid;
+        border-width: $gl-timeline-circle-border-width;
+        border-radius: $gl-timeline-circle-border-radius;
+        content: "";
+        background-color: $gl-timeline-item-border-color;
+      }
+    }
+  }
+}
+
+// default timeline component
+.gl-timeline-default {
+  @extend .__gl-timeline-base;
+  .gl-timeline-list {
+    .gl-timeline-item {
+      .current-title,
+      .past-title,
+      .reserved-title {
+        color: $gl-timeline-reserved-title-color;
+        font-size: 12px;
+      }
+      &.free-time, &.current-title {
+        @include timeline-helper(#fff, none, $gl-timeline-primary-color);
+      }
+      &.reserved-time {
+        @include timeline-helper(#414042, inline, $gl-timeline-reserved-item-hover);
+      }
+      &.past-time {
+        &:before {
+          background: #414042;
+
+        }
+        .past-title {
+          display: inline;
+        }
+      }
+      &.my-reservation {
+        border-color: $gl-timeline-primary-color;
+        color: $gl-timeline-primary-color;
+        &:before {
+          background: $gl-timeline-primary-color;
+
+        }
+        .reserved-title {
+          color: inherit;
+        }
+      }
+      &.active-item {
+        background: $gl-timeline-primary-color;
+      }
+    }
+  }
+  .eventItemList {
+    > li {
+      height: 15px;
+    }
+  }
+}
+
+// secondary timeline component
+.gl-timeline-secondary {
+  @extend .__gl-timeline-base;
+  @include animation-helper(ease, 0.3s);
+ .gl-timeline-list .gl-timeline-item {
+   &:before {
+     width: $gl-secondary-timeline-circle-params;
+     height: $gl-secondary-timeline-circle-params;
+     left: $gl-secondary-timeline-left;
+     top: $gl-secondary-timeline-top;
+   }
+   .timeline-item-cont {
+     .timeline-title {
+      font-size: $gl-secondary-timeline-title-font-size;
+      margin: 0 0 5px;
+      color: $gl-secondary-timeline-title-color;
+     }
+     .timeline-date {
+      font-size: $gl-secondary-timeline-date-font-size;
+      color: $gl-secondary-timeline-date-color;
+      margin: 0 0 10px;
+     }
+     &:hover, &.active {
+       background-color: $gl-secondary-timeline-background-hover;
+       cursor: pointer;
+     }
+   }
+ }
+}
+
+
+.gl-timeline-whisker {
+  .gl-timeline-list {
+    margin: 0 auto;
+    padding: 0;
+    .gl-timeline-item {
+      position: relative;
+      &:after {
+        content: "";
+        display: block;
+        height: 0;
+        clear: both;
+        visibility: hidden;
+      }
+      .timeline-item-cont {
+        width: calc(50% + 1px);
+        position: relative;
+        box-sizing: border-box;
+        &:after {
+          position: absolute;
+          width: 6px;
+          height: 6px;
+          border-radius: 50%;
+          content: "";
+          background-color: #414042;
+          top: 10px;
+        }
+        &:before {
+          position: absolute;
+          width: 35px;
+          height: 1px;
+          background: #414042;
+          content: "";
+          top: 13px;
+        }
+
+        &.item-left {
+          border-right: 2px solid #414042;
+          float: left;
+          text-align: right;
+          padding-right: 35px;
+
+          &:after {
+            right: -4px;
+          }
+          &:before {
+            right: 0px;
+          }
+        }
+        &.item-right {
+          border-left: 2px solid #414042;
+          float: right;
+          padding-left: 35px;
+          text-align: left;
+          &:after {
+            left: -4px;
+          }
+          &:before {
+            left: 0px;
+          }
+        }
+        .timeline-title {
+          font-size: 12px;
+          padding: 10px 0 0;
+          color: #616161;
+        }
+        .timeline-date {
+          margin: 10px 0 0;
+          font-size: 10px;
+          color: #898989;
+        }
+      }
+      .timeline-item-cont-inner {
+        padding: 0 20px 5px;
+        &:hover {
+          background-color: #ededed;
+          .edit-btn, .delete-btn {
+            visibility: visible;
+          }
+        }
+      }
+    }
+  }
+}

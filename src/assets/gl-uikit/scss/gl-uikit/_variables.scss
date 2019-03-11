@@ -1,0 +1,239 @@
+// color
+$gl-text-color: #414042 !default;
+$gl-text-color-darkGrey: #878A8D !default;
+$gl-text-color-grey: #B2B5B8 !default;
+$gl-text-color-lightGrey: #F3F4F5 !default;
+
+$gl-font-small-size: 10px !default;
+$gl-font-semi-small-size: 12px !default;
+$gl-font-alternative-base-size: 13px !default;
+$gl-font-base-size: 14px !default;
+$gl-font-medium-size: 16px !default;
+$gl-font-semi-large-size: 18px !default;
+$gl-font-large-size: 20px !default;
+
+//------- LOGO ------------------
+$gl-user-logo-size: 160px;
+$gl-user-logo-lg-size: 120px;
+$gl-user-logo-md-size: 80px;
+$gl-user-logo-sm-size: 60px;
+$gl-user-logo-xs-size: 40px;
+$gl-user-logo-xxs-size: 30px;
+
+// Defaults stylings
+$gl-default-color: #878A8D !default;
+$gl-default-desabled-color: lighten($gl-default-color, 15%);
+$gl-default-hover-color: darken($gl-default-color, 7%);
+$gl-default-active-color: darken($gl-default-color, 13%);
+
+$gl-primary-color: #F37037 !default;
+$gl-primary-desabled-color: lighten($gl-primary-color, 15%);
+$gl-primary-hover-color: darken($gl-primary-color, 7%);
+$gl-primary-active-color: darken($gl-primary-color, 13%);
+
+$gl-default-margin: 20px !default;
+$gl-default-padding: 20px !default;
+$gl-default-font-size: 14px !default;
+$gl-font-css-prefix: 'glicon';
+
+$default-border-size: 2px !default;
+
+//** Global textual link color.
+$gl-text-color: #424143 !default;
+$gl-link-color: #323133 !default;
+$gl-link-hover-color: $gl-link-color !default;
+// gl-error-color
+$gl-error-color: #d0021b !default;
+
+//** Link hover decoration.
+$gl-link-hover-decoration: underline !default;
+// path for icon glfont
+$gl-icon-font-path: "../fonts/gl-font/" !default;
+// path for icon glfont
+$gl-image-path: "../img/" !default;
+
+// link
+$gl-link-font-size: 14px;
+$gl-link-padding: 8px 20px;
+$gl-link-radius: 2px;
+
+$gl-link-bg: #ededed !default;
+
+$gl-link-default-color: $gl-default-color;
+$gl-link-default-desabled-color: lighten($gl-link-default-color, 15%);
+$gl-link-default-hover-color: darken($gl-link-default-color, 7%);
+$gl-link-default-active-color: darken($gl-link-default-color, 13%);
+
+$gl-link-primary-color: $gl-primary-color !default;
+$gl-link-primary-desabled-color: lighten($gl-link-primary-color, 15%);
+$gl-link-primary-hover-color: darken($gl-link-primary-color, 7%);
+$gl-link-primary-active-color: darken($gl-link-primary-color, 13%);
+
+// List
+$gl-toggle-list-size:30px !default;
+$gl-toggle-list-margin:$gl-default-margin/2 !default;
+// Table
+$gl-table-padding: 10px !default;
+$gl-table-th-color: #878A8D !default;
+$gl-table-row-bg: #FFF !default;
+$gl-table-th-font-size: 13px !default;
+$gl-table-separator-height: 10px !default;
+$gl-table-separator-bg: transparent !default;
+
+// Header stylings
+$gl-header-bg: #424143 !default;
+$gl-header-height: 60px !default;
+
+$gl-service-header-menu-bg: #333333 !default;
+$gl-service-header-width: 300px !default;
+$gl-service-header-color: #707070 !default;
+$gl-service-header-name-color: #EBECED !default;
+$gl-service-header-logo-size: 35px !default;
+
+$gl-header-service-item: (
+  //'.gl-service-admin-dashboard' :"#{$gl-image-path}gear.svg",
+  //'.gl-service-helpdesk' :"#{$gl-image-path}Helpdesk_icon.png",
+  //'.gl-service-oracle' :"#{$gl-image-path}oracle_icon.png",
+  //'.gl-service-office-map' :"#{$gl-image-path}office_map_icon.png",
+) !default;
+
+// Navigation stylings
+$gl-nav-padding: 4px 10px 4px 40px;
+$gl-nav-header-margin-top: 20px;
+$gl-nav-header-font-size: 14px;
+$gl-nav-header-font-weight: normal;
+$gl-nav-header-text-transform: initial;
+$gl-nav-header-padding: 4px 10px 4px 40px;
+$gl-nav-active-color-bg: rgba(66, 65, 67, 0.15);
+$gl-nav-hover-link-color-bg: rgba(66, 65, 67, 0.15);
+$gl-nav-active-link-hover-color: $gl-link-color;
+
+// Navigation inline styling
+$gl-nav-inline-padding: 10px 20px;
+$gl-nav-inline-color: #4a4a4a;
+$gl-nav-inline-active: $gl-primary-color;
+
+// Navigation tab styling
+$gl-nav-tab-type-d: 'd';
+$gl-nav-tab-background-d: #424143;
+$gl-nav-tab-box-shasow-d: 0 1px 3px 0 rgba(0, 0, 0, 0.5);
+$gl-nav-tab-item-padding-d: 20px 15px;
+$gl-nav-tab-link-color-d: #fefefe;
+$gl-nav-tab-link-hover-bg-d: #333333;
+$gl-nav-tab-item-border-bottom-color-d: $gl-primary-color;
+$gl-nav-tab-item-border-bottom-width-d: -4px;
+
+// Navigation tab light theme
+$gl-nav-tab-type-l: 'l';
+$gl-nav-tab-background-l: #ffffff;
+$gl-nav-tab-box-shasow-l: 0 1px 3px 0 rgba(0, 0, 0, 0.5);
+$gl-nav-tab-item-padding-l: 20px 15px;
+$gl-nav-tab-link-color-l: #616161;
+$gl-nav-tab-link-hover-bg-l: #f2f2f2;
+$gl-nav-tab-item-border-bottom-color-l: $gl-primary-color;
+$gl-nav-tab-item-border-bottom-width-l: -4px;
+
+// gl-nav-snake dark theme
+$gl-nav-snake-type-d: d;
+$gl-nav-snake-background-d: #424143;
+$gl-nav-snake-box-shasow-d: 0 1px 3px 0 rgba(0, 0, 0, 0.5);
+$gl-nav-snake-item-bg-active-d: #333333;
+$gl-nav-snake-item-width-d: 60px;
+$gl-nav-snake-item-height-d: $gl-nav-snake-item-width-d;
+$gl-nav-snake-link-color-d: #b4b6bd;
+$gl-nav-snake-link-fontsize-d: 16px;
+$gl-nav-snake-link-active-d: #ffffff;
+
+// gl-nav-snake light theme
+$gl-nav-snake-type-l: l;
+$gl-nav-snake-background-l: #ffffff;
+$gl-nav-snake-box-shasow-l: 0 1px 3px 0 rgba(0, 0, 0, 0.5);
+$gl-nav-snake-item-bg-active-l: #f2f2f2;
+$gl-nav-snake-item-width-l: 60px;
+$gl-nav-snake-item-height-l: $gl-nav-snake-item-width-l;
+$gl-nav-snake-link-color-l: #616161;
+$gl-nav-snake-link-fontsize-l: 16px;
+$gl-nav-snake-link-active-l: #333333;
+
+// Primary button group general styling
+$gl-btn-padding: 8px 20px !default;
+$gl-btn-font-size: 14px !default;
+$gl-btn-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.25) !default;
+$gl-btn-radius: 2px !default;
+
+// Primary buttons
+$gl-btn-primary-color: #fefefe !default;
+$gl-btn-primary-background: $gl-primary-color;
+
+// Default buttons
+$gl-btn-default-color: #fefefe !default;
+$gl-btn-default-background: $gl-default-color;
+
+// Simple btn
+$gl-text-btn-color: $gl-primary-color;
+$gl-text-btn-disabled-color: $gl-primary-desabled-color;
+
+// Icon buttons
+$gl-icon-btn-padding: 7px !default;
+$gl-icon-btn-background: $gl-primary-color !default;
+$gl-icon-btn-border: 2px !default;
+$gl-icon-btn-color: #58666e !default;
+
+//Toggle button
+$gl-toggle-btn-color: #B2B5B8 !default;
+$gl-toggle-width: 32px !default;
+$gl-toggle-height: 20px !default;
+$gl-toggle-on-color: $gl-primary-color;
+$gl-toggle-knob-bg: #fff !default;
+$gl-toggle-knob-padding: 2px !default;
+$gl-toggle-knob-size: calc(#{$gl-toggle-height} - (2 * #{$gl-toggle-knob-padding}));
+
+// Forms
+$gl-input-color: $gl-default-color !default;
+$gl-input-focused-color: $gl-primary-color !default;
+$gl-input-disabled-color: #bdbcbc !default;
+$gl-input-error-state: $gl-error-color !default;
+
+// Checkbox variables
+$gl-checkbox-size: 16px !default;
+$gl-checkbox-border: $default-border-size solid $gl-default-color !default;
+$gl-checkbox-radius: 2px !default;
+$gl-checkbox-border-label: 3px solid #ffffff !default;
+$gl-checkbox-background: $gl-primary-color !default;
+$gl-checkbox-top-position: 2px !default;
+
+// Radio variables
+$gl-radio-size: 18px;
+$gl-radio-border-label: 2px solid #ffffff;
+$gl-radio-top-position: 1px;
+
+// Timeline component
+$gl-timeline-reserved-item-hover: #E2E2E2;
+$gl-timeline-primary-color: $gl-primary-color;
+$gl-timeline-item-border-color: #414042;
+$gl-timeline-reserved-title-color: #9B9B9B;
+$gl-timeline-item-padding: 0 0 0 10px;
+$gl-timeline-item-cont-padding: 5px 0 5px 17px;
+$gl-timeline-circle-params: 10px;
+$gl-timeline-circle-border-width: 2px;
+$gl-timeline-circle-border-radius: 50%;
+$gl-timeline-top: 10px;
+$gl-timeline-right: 4px;
+
+// Secondary timeline component
+$gl-secondary-timeline-circle-params: 6px;
+$gl-secondary-timeline-top: 16px;
+$gl-secondary-timeline-left: -2px;
+$gl-secondary-timeline-background-hover: #f9f9f9;
+$gl-secondary-timeline-title-color: #484848;
+$gl-secondary-timeline-title-font-size: 14px;
+$gl-secondary-timeline-date-color: #999;
+$gl-secondary-timeline-date-font-size: 12px;
+
+// Tabs
+$gl-tabs-primary-color: $gl-primary-color !default;
+// Popover
+$gl-popover-border-radius: 2px;
+$gl-popover-box-shadown: 0 1px 3px 0 rgba(0, 0, 0, 0.5);
+
+

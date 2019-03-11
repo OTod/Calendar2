@@ -28,9 +28,14 @@
             ],
             "styles": [
               "src/styles.sass",
-              "node_modules/font-awesome/css/font-awesome.css"
+              "node_modules/font-awesome/css/font-awesome.css",
+              "src/assets/gl-uikit/css/gl.uikit.min.css"
+
             ],
-            "scripts": []
+            "scripts": [
+              "src/assets/scripts/jquery.min.js",
+              "src/assets/scripts/bootstrap.min.js"
+            ]
           },
           "configurations": {
             "production": {

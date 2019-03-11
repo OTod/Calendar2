@@ -1,0 +1,33 @@
+//styles for all available alerts
+.alert {
+  position: relative;
+  color: #FFF;
+  padding: $gl-alerts-padding;
+
+  text-align: center;
+
+  height: auto;
+  max-height: $gl-alerts-height-max;
+
+  // z-index should be max
+  z-index: 18;
+
+  button.close {
+    position: relative;
+    right: 0px;
+  }
+
+  &.alert-fixed {
+    position: fixed;
+    top: 40px;
+    left: calc(50% - $gl-alerts-width);
+  }
+
+  //for each available states generate color
+  $available-states: ( success: $gl-alerts-success-color, danger: $gl-alerts-danger-color, warning: $gl-alerts-warning-color );
+  @each $state, $color in $available-states {
+    &.alert-#{$state} {
+      background: $color;
+    }
+  }
+}

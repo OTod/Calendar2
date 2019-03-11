@@ -1,0 +1,55 @@
+@mixin gl-disabled-link($color) {
+  &.disabled,
+  &[disabled],
+  fieldset[disabled] & {
+    color: $color !important;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+}
+
+// like link buttons
+.link-simple {
+  font-size: $gl-link-font-size;
+  overflow: hidden;
+}
+
+// Base class for simple buttons with background
+.link-simple-background {
+  @extend .link-simple;
+  padding: $gl-link-padding;
+  border-radius: $gl-link-radius;
+  &:active {
+    background: $gl-link-bg;
+  }
+}
+
+// default link
+.gl-link-default {
+  @extend .link-simple;
+  @include gl-disabled-link($gl-link-default-desabled-color);
+  color: $gl-link-default-color;
+  &:hover, &:focus {
+    color: $gl-link-default-hover-color;
+  }
+  &:active {
+    color: $gl-link-default-active-color;
+  }
+}
+
+.gl-link-primary {
+  @extend .link-simple;
+  @include gl-disabled-link($gl-link-primary-desabled-color);
+  color: $gl-link-primary-color;
+  &:hover, &:focus {
+    color: $gl-link-primary-hover-color;
+  }
+  &:active {
+    color: $gl-link-primary-active-color;
+  }
+}
+
+// button icon with background
+.gl-link-with-bg {
+  @extend .link-simple-background;
+}

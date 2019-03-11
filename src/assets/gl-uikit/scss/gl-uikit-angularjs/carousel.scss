@@ -1,0 +1,35 @@
+.carousel-control {
+  width: $gl-carousel-control-width;
+  .glyphicon {
+  }
+  .glyphicon-chevron-left {
+    width:$gl-carousel-control-chevron-w;
+    height:$gl-carousel-control-chevron-h;
+    margin:$gl-carousel-control-margin-l;
+  }
+  .glyphicon-chevron-right {
+    width:$gl-carousel-control-chevron-w;
+    height:$gl-carousel-control-chevron-h;
+    margin:$gl-carousel-control-margin-r;
+  }
+}
+
+.carousel-indicators {
+  bottom: $gl-carousel-indicators-pos;
+  li {
+    border: $gl-carousel-indicators-border;
+    background: $gl-carousel-indicators-bg;
+    width: $gl-carousel-indicators-size;
+    height: $gl-carousel-indicators-size;
+    margin: $gl-carousel-indicators-margin;
+    border-radius: $gl-carousel-indicators-size;
+    &.active {
+      background: $gl-carousel-indicators-active-bg;
+      box-shadow : $gl-carousel-indicators-active-shadow;
+      width: $gl-carousel-indicators-size;
+      height: $gl-carousel-indicators-size;
+      margin: $gl-carousel-indicators-margin;
+      border-radius: $gl-carousel-indicators-size;
+    }
+  }
+}

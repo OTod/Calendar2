@@ -1,0 +1,67 @@
+.gl-nav {
+  >li {
+    &.gl-nav-header {
+      padding: $gl-nav-header-padding;
+      text-transform: $gl-nav-header-text-transform;
+      font-weight: $gl-nav-header-font-weight;
+      font-size: $gl-nav-header-font-size;
+      > a {
+        padding: 0;
+      }
+      &.active{
+        background-color: $gl-nav-active-color-bg;
+        > a {
+          &,
+          &:hover,
+          &:focus {
+            background-color: transparent;          }
+        }
+      }
+    }
+    &.gl-nav-header:not(:first-child) { margin-top: $gl-nav-header-margin-top; }
+     > a {
+      &:hover,
+      &:focus {
+        background-color: $gl-nav-hover-link-color-bg;
+        color: $gl-link-hover-color;
+      }
+    }
+    > a {
+      padding: $gl-nav-padding;
+    }
+    // Active state, and its :hover to override normal :hover
+    &.active > a {
+      &,
+      &:hover,
+      &:focus {
+        font-weight: bold;
+      }
+    }
+  }
+}
+
+.gl-nav-inline {
+  > li {
+    float: left;
+
+    // Actual tabs (as links)
+    > a {
+      color: $gl-nav-inline-color;
+      padding: $gl-nav-inline-padding;
+      &:hover {
+        color: $gl-nav-inline-color;
+        text-decoration: underline;
+      }
+    }
+    // Active state, and its :hover to override normal :hover
+    &.active > a {
+      color:$gl-nav-inline-active;
+      &:hover,
+      &:focus {
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+

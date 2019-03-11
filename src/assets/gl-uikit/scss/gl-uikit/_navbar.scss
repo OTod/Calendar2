@@ -1,0 +1,153 @@
+
+/// Create horizontal gl-nav-tab navigation used in Portal(UIKit)
+/// @param {Lists} $param - all variable for @mixin gl-nav-tab
+/// @output create style for .gl-nav-tab-*
+/*
+Description @param for @mixin gl-nav-snake
+nth($param, 1) - prefix for parent class
+nth($param, 2) - navigation background color
+nth($param, 3) - navigation box shadow
+nth($param, 4) - padding for link
+nth($param, 5) - color for link nav
+nth($param, 6) - background color for link in hover state
+nth($param, 7) - color for item border bottom
+nth($param, 8) - widht for item border bottom
+*/
+@mixin gl-nav-tab($param) {
+  .gl-nav-tab-#{nth($param, 1)} {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    background-color: nth($param, 2);
+    box-shadow: nth($param, 3);
+    & > li {
+      float: left;
+      position: relative;
+      &:hover{
+        background-color: nth($param, 6);
+        text-decoration: none;
+      }
+      &:focus {
+        text-decoration: none;
+      }
+
+      & > a {
+        cursor: pointer;
+        padding: nth($param, 4);
+        color: nth($param, 5);
+      }
+      &.active {
+        font-weight: bold;
+        box-shadow: inset 0 nth($param, 8) 0px 0px nth($param, 7);
+        &:hover{
+          background-color:transparent;
+        }
+      }
+    }
+  }
+}
+$param-gl-nav-tab-dark :(
+  $gl-nav-tab-type-d,
+  $gl-nav-tab-background-d,
+  $gl-nav-tab-box-shasow-d,
+  $gl-nav-tab-item-padding-d,
+  $gl-nav-tab-link-color-d,
+  $gl-nav-tab-link-hover-bg-d,
+  $gl-nav-tab-item-border-bottom-color-d,
+  $gl-nav-tab-item-border-bottom-width-d
+);
+
+$param-gl-nav-tab-light:(
+  $gl-nav-tab-type-l,
+  $gl-nav-tab-background-l,
+  $gl-nav-tab-box-shasow-l,
+  $gl-nav-tab-item-padding-l,
+  $gl-nav-tab-link-color-l,
+  $gl-nav-tab-link-hover-bg-l,
+  $gl-nav-tab-item-border-bottom-color-l,
+  $gl-nav-tab-item-border-bottom-width-l
+);
+
+
+@include gl-nav-tab($param-gl-nav-tab-dark);
+@include gl-nav-tab($param-gl-nav-tab-light);
+
+/// Create vertical gl-nav-snake navigation used in Portal(GLM, Event)
+/// @param {Lists} $param - all variable for  @mixin gl-nav-snake
+/// @output create style for .gl-nav-snake-*
+/*
+Description @param for @mixin gl-nav-snake
+nth($param, 1) - prefix for parent class
+nth($param, 2) - navigation background color
+nth($param, 3) - navigation box shadow
+nth($param, 4) - background for item in active state
+nth($param, 5) - navigation width
+nth($param, 6) - navigation height
+nth($param, 7) - color for link
+nth($param, 8) - font size for link
+nth($param, 9) - color for link in active state
+*/
+@mixin gl-nav-snake($param) {
+  .gl-nav-snake-#{nth($param, 1)} {
+    width: nth($param, 5);
+    box-shadow:nth($param, 3);
+    >li {
+      background: nth($param, 2);
+      width: nth($param, 5);
+      height: nth($param, 6);
+      text-align: center;
+      display: table;
+      cursor: pointer;
+      &:hover {
+        >a {
+          color: nth($param, 9);
+        }
+      }
+      &.active {
+        background: nth($param, 4);
+        >a {
+          color:nth($param, 9);
+        }
+      }
+
+      >a {
+        color: nth($param, 7);
+        display: table-cell;
+        vertical-align: middle;
+        font-size: nth($param, 8);
+        padding: 0;
+      }
+    }
+  }
+}
+
+$param-gl-nav-snake-dark :(
+  $gl-nav-snake-type-d,
+  $gl-nav-snake-background-d,
+  $gl-nav-snake-box-shasow-d,
+  $gl-nav-snake-item-bg-active-d,
+  $gl-nav-snake-item-width-d,
+  $gl-nav-snake-item-height-d,
+  $gl-nav-snake-link-color-d,
+  $gl-nav-snake-link-fontsize-d,
+  $gl-nav-snake-link-active-d
+);
+$param-gl-nav-snake-light:(
+  $gl-nav-snake-type-l,
+  $gl-nav-snake-background-l,
+  $gl-nav-snake-box-shasow-l,
+  $gl-nav-snake-item-bg-active-l,
+  $gl-nav-snake-item-width-l,
+  $gl-nav-snake-item-height-l,
+  $gl-nav-snake-link-color-l,
+  $gl-nav-snake-link-fontsize-l,
+  $gl-nav-snake-link-active-l
+);
+
+
+@include gl-nav-snake($param-gl-nav-snake-dark);
+@include gl-nav-snake($param-gl-nav-snake-light);
+
+
+
+

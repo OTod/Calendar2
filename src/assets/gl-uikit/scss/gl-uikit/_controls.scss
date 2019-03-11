@@ -1,0 +1,135 @@
+// gl control elements
+.gl-checkbox{
+  position: relative;
+  margin-bottom: 10px;
+  display: inline-block;
+  label {
+    width: $gl-checkbox-size;
+    height: $gl-checkbox-size;
+    cursor: pointer;
+    border-radius: $gl-checkbox-radius;
+    border: $gl-checkbox-border;
+    position: absolute;
+    top: $gl-checkbox-top-position;
+    left: 0;
+    margin: 0;
+    &:before {
+      content: '';
+      width: 9px;
+      height:7px;
+      position: absolute;
+      top: 3px;
+      left: 4px;
+      border: $gl-checkbox-border-label;
+      border-top: none;
+      border-right: none;
+      background: transparent;
+      opacity: 0;
+      transform: rotate(-45deg);
+    }
+  }
+  // hidden checkbox item
+  input[type=checkbox]{
+    visibility: hidden;
+    width: $gl-checkbox-size;
+    height: $gl-checkbox-size;
+    display: inline-block;
+    margin: 0;
+    &:checked + label {
+      background: $gl-primary-color;
+      border: none;
+      &:before {
+        opacity: 1;
+      }
+      span {
+        top: -2px;
+        left: 23px;
+      }
+    }
+  }
+  @include gl-disabled-helper($gl-default-color);
+}
+// radio btn stylings
+.gl-radio {
+  position: relative;
+  margin-bottom: 10px;
+  display: inline-block;
+  label {
+    width: $gl-radio-size;
+    height: $gl-radio-size;
+    cursor: pointer;
+    border-radius: 50%;
+    border: $gl-checkbox-border;
+    position: absolute;
+    top: $gl-radio-top-position;
+    left: 0;
+    margin: 0;
+    &:before {
+      content: '';
+      width: 14px;
+      height: 14px;
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      border-radius: 50%;
+      border: $gl-radio-border-label;
+      background: transparent;
+      opacity: 0;
+    }
+  }
+  // hidden checkbox item
+  input[type=radio] {
+    visibility: hidden;
+    width: $gl-radio-size;
+    height: $gl-radio-size;
+    display: inline-block;
+    margin: 0;
+    vertical-align: middle;
+    &:checked + label {
+      background: $gl-primary-color;
+      border: none;
+      &:before {
+        opacity: 1;
+      }
+      span {
+        top: -2px;
+        left: 23px;
+      }
+    }
+  }
+  @include gl-disabled-helper($gl-default-color);
+}
+
+// radio btn stylings
+.gl-file-select {
+  position: relative;
+  display: inline-block;
+  label {
+    width: 120px;
+    height: 50px;
+    cursor: pointer;
+    border: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 0;
+  }
+  // hidden checkbox item
+  input[type=file] {
+    visibility: hidden;
+    width: $gl-checkbox-size;
+    height: $gl-checkbox-size;
+    display: inline-block;
+    margin: 0;
+    vertical-align: middle;
+    &:checked + label {
+      background: $gl-primary-color;
+      border: none;
+      &:before {
+        opacity: 1;
+      }
+    }
+  }
+  @include gl-disabled-helper($gl-default-color);
+}
+

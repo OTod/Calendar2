@@ -1,0 +1,19 @@
+.gl-rating {
+  color: $gl-default-color;
+  font-size: 12px;
+  cursor: pointer;
+  &.disable {
+    cursor: default;
+  }
+  &.is-vote {
+    color: $gl-primary-color;
+  }
+  .gl-ratin-icon {
+    font-size: 14px;
+    vertical-align: middle;
+  }
+  .rating-value {
+    margin: 0 0 0 3px;
+    vertical-align: middle;
+  }
+}

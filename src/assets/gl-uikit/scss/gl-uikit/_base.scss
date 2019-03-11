@@ -1,0 +1,71 @@
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+// Links
+a {
+  color: $gl-link-color;
+  text-decoration: none;
+  &:hover,
+  &:focus {
+    color: lighten($gl-link-color, 25%);
+    text-decoration: none;
+  }
+}
+
+// glFont size
+@for $i from 2 through 10 {
+  .#{$gl-font-css-prefix}-#{$i}x {
+    font-size: #{$i}em;
+  }
+
+}
+
+.#{$gl-font-css-prefix}-vt {
+  vertical-align: top;
+}
+
+.#{$gl-font-css-prefix}-vm {
+  vertical-align: middle;
+}
+
+.#{$gl-font-css-prefix}-vb {
+  vertical-align: bottom;
+}
+//--------- logo style   ---------
+
+.gl-logo-con-wrap {
+  @include clearfix();
+  .logo-con {
+    float: left;
+    margin: 0 $gl-default-margin 0 0;
+    .img-wrap {
+      border: 1px solid rgba(130, 130, 130, 0.2);
+      display: inline-block;
+      width: $gl-user-logo-sm-size;
+      height: $gl-user-logo-sm-size;
+      border-radius: 50%;
+      overflow: hidden;
+    }
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+  .aside-logo {
+    position: relative;
+    float: left;
+    width: calc(100% - (#{$gl-user-logo-sm-size} + #{$gl-default-margin}));
+    min-width: 100px;
+  }
+  &.logo-con-vm {
+    .logo-con, .aside-logo {
+      display: inline-block;
+      vertical-align: middle;
+      float: none;
+    }
+  }
+
+}

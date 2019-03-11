@@ -1,0 +1,191 @@
+//Styles for all button like components
+
+// These vars should not be moved from here
+// it's a component's specific vars,
+// so better to keep them in place
+$vendor-prefixes-list: ("-webkit-", " ");
+$keyframes-prefixes-list: ("@-webkit-keyframes", "@keyframes");
+
+@function generate-transform-str($transform, $degree) {
+  @return unquote($transform + '(' + $degree + ')');
+}
+@mixin simple-animation ($property, $func, $duration) {
+  -webkit-transition: $property $func $duration;
+  -moz-transition: $property $func $duration;
+  -o-transition: $property $func $duration;
+  transition: $property $func $duration;
+}
+// helper for working with transforms
+// generating transform for each type of vendor prefixes
+@mixin transform-helper($transform, $degree) {
+  @each $prefix in $vendor-prefixes-list {
+    #{$prefix}transform: generate-transform-str($transform, $degree);
+  }
+}
+
+// helper for working with animations
+// generates vendor prefixes
+@mixin animation-helper($animation-name, $duration, $type, $func) {
+  @each $prefix in $vendor-prefixes-list {
+    #{$prefix}animation: $animation-name $duration $type $func;
+  }
+}
+
+// helper for prefixing keyframes animation
+@mixin keyframes-helper($animation-name) {
+  @-webkit-keyframes #{$animation-name} { @content ; }
+  @keyframes #{$animation-name} { @content ; }
+}
+
+// Base button class that is extendable
+// from other classes
+.btn-base {
+  padding: $gl-btn-padding;
+  margin: 0;
+  overflow: hidden;
+  font-size: $gl-btn-font-size;
+  box-shadow: $gl-btn-shadow;
+  border-radius: $gl-btn-radius;
+}
+
+// Base class for all simple buttons,
+// like link buttons
+.btn-simple {
+  font-size: $gl-btn-font-size;
+  overflow: hidden;
+  border: none;
+  @include gl-disabled-helper($gl-text-btn-disabled-color);
+  &:hover, &:focus, &:visited {
+    color: $gl-text-btn-color;
+  }
+}
+
+// Base class for simple buttons with background
+.btn-simple-background {
+  @extend .btn-simple;
+  padding: $gl-btn-padding;
+  border-radius: $gl-btn-radius;
+  &:active {
+    background: lighten($gl-btn-default-background, 40%);
+  }
+}
+
+// Base class for all icon buttons
+.btn-icon {
+  font-family: 'glfont';
+  border: none;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  padding: $gl-icon-btn-padding;
+  border-radius: $gl-icon-btn-border;
+  cursor: pointer;
+  color: $gl-icon-btn-color;
+}
+
+// Button components
+$base-buttons: (primary, default);
+
+// helper for translating string to unicode string
+@function unicode($str) {
+  @return unquote("\"")+unquote(str-insert($str, "\\", 1))+unquote("\"");
+}
+
+@each $btn in $base-buttons {
+  .gl-btn-#{$btn} {
+    @extend .btn-base;
+    @if $btn == primary {
+      @include gl-btn-variant($gl-btn-primary-color, $gl-btn-primary-background, $gl-btn-radius);
+    } @else {
+      @include gl-btn-variant($gl-btn-default-color, $gl-btn-default-background, $gl-btn-radius);
+    }
+  }
+}
+
+@each $btn, $uni in $font-icon-variables {
+  .gl-#{$btn} {
+    &:before {
+      content: unicode(#{$uni});
+    }
+    &:hover,&:focus, &:visited {
+      color: $gl-btn-primary-background;
+      text-decoration: none;
+    }
+    &:active {
+      color: darken($gl-btn-primary-background, 15%);
+      text-decoration:none;
+      background: $gl-link-bg;
+    }
+    @include gl-disabled-helper($gl-text-btn-disabled-color);
+  }
+}
+
+@each $btn, $uni in $font-icon-variables {
+  .gl-#{$btn}-bg {
+    @include gl-btn-variant($gl-btn-primary-color, $gl-btn-primary-background, $gl-btn-radius);
+    &:before {
+      content: unicode(#{$uni});
+    }
+    &:hover, &:active, &:focus, &:visited {
+      text-decoration: none;
+    }
+    @include gl-disabled-helper($gl-btn-default-color);
+  }
+}
+
+
+@include keyframes-helper(gl-rotate) {
+  0% { @include transform-helper('rotate', '0deg'); }
+  100% { @include transform-helper('rotate', '360deg'); }
+}
+
+// buttons states
+.gl-rotate {
+  display: inline-block;
+  //animation: gl-rotate 1.2s infinite linear;
+  @include animation-helper(gl-rotate, 1.2s, infinite, linear);
+}
+
+.gl-toggle-btn {
+  background-color: $gl-toggle-btn-color;
+  position: relative;
+  display: inline-block;
+  padding: 0;
+  width: $gl-toggle-width;
+  height: $gl-toggle-height;
+  border: none;
+  border-radius: $gl-toggle-height;
+  vertical-align: middle;
+  .knob {
+    position: absolute;
+    display: inline-block;
+
+    top:$gl-toggle-knob-padding;
+    left: calc(#{$gl-toggle-width} - #{$gl-toggle-knob-size} -  #{$gl-toggle-knob-padding});
+    @include simple-animation (left, linear, 0.3s);
+
+    background-color: $gl-toggle-knob-bg;
+    width: $gl-toggle-knob-size;
+    height: $gl-toggle-knob-size;
+    border-radius: $gl-toggle-knob-size;
+  }
+
+  &:focus {
+    outline: none;
+  }
+  &.on {
+    background-color: $gl-toggle-on-color;
+    .knob {
+      left: $gl-toggle-knob-padding;
+    }
+
+  }
+  &.disabled {
+    opacity: 0.5;
+  }
+}

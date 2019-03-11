@@ -1,0 +1,65 @@
+.uib-daypicker {
+  outline: none;
+  td {
+    outline: none;
+    > button {
+      border: none;
+      background:$gl-datepicker-bg-color;
+      border-color: transparent;
+      box-shadow: none;
+      outline: none;
+      color:$gl-datepicker-base-color;
+      &:hover, &:focus, &:active, &:focus:active {
+        background-color: $gl-datepicker-hover-color;
+        box-shadow: none;
+        outline: none;
+      }
+      &.active {
+        color: $gl-datepicker-bg-color;
+        background: $gl-datepicker-active-color;
+
+        &:hover, &:focus, &:active, &:focus:active {
+          color: $gl-datepicker-bg-color;
+          background-color: $gl-datepicker-active-color;
+          box-shadow: none;
+          outline: none;
+        }
+
+        .text-info {
+          color: $gl-datepicker-bg-color;
+        }
+      }
+      .text-info {
+        color:$gl-datepicker-active-color;
+        font-weight: bold;
+      }
+      .text-muted {
+        color:$gl-datepicker-disabled-color;
+      }
+    }
+  }
+}
+.uib-button-bar {
+  .btn-group {
+    width: 100% !important;
+  }
+  button {
+    background: transparent;
+    border: none;
+    font-weight: 600;
+    &:hover, &:active, &:focus, &:focus:active {
+      background: transparent;
+      outline: none;
+    }
+    &.btn-success {
+      display: none;
+    }
+    &.uib-datepicker-current {
+      color: $gl-datepicker-active-color !important;
+    }
+    &.uib-clear {
+      float: right;
+      color: $gl-datepicker-base-color !important;
+    }
+  }
+}
