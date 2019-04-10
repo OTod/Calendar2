@@ -59,18 +59,14 @@
     <div class="popup-body">
       <form [formGroup]="activityForm" (submit)="addActivities(activityForm)">
         {{time}}
-        <label for="time">
           <input class="timeInputPopup" formControlName="time" required type="text" placeholder="Time">
-        </label>
-        <label for="activity">
           <input class="activityInputPopup" formControlName="activity" required type="text"
             placeholder="Enter name of activity">
-        </label>
         <button class="popup-button">Add</button>
       </form>
       <div>
         <ul>
-          <li *ngFor="let activity of agendaCurrent[selectedDay.dateInternational]">
+          <li  *ngFor="let activity of agendaCurrent[selectedDay.dateInternational]">
             <span class="activityListed">{{activity.time}} : {{activity.activity}}</span>
             <button class="removeButton popup-button" type="button"
               (click)="removeActivity(selectedDay.dateInternational,activity.actId)">Remove</button>

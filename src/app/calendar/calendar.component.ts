@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms'
+import { FormGroup, FormControl } from '@angular/forms';
 
-import { AgendaService } from '../agenda.service'
+import { AgendaService } from '../agenda.service';
 
 @Component({
   selector: 'app-calendar',
@@ -26,16 +26,16 @@ export class CalendarComponent implements OnInit {
 
   calendar: Object[];
 
-  startDay: number = 1; //sunday
+  startDay = 1; // sunday
   dayFormat: Object = { day: 'numeric' };
-  fullDayFormat: Object = {day:'numeric', year:'numeric', month:'long'};
+  fullDayFormat: Object = { day: 'numeric', year: 'numeric', month: 'long' };
 
   selectedDay: {
     date: string,
     year: number,
     month: number,
     fullDate: Date
-  } = {date:'',year:0,month:0,fullDate:new Date};
+  } = { date: '', year: 0, month: 0, fullDate: new Date };
 
   agendaCurrent; //// TODO: add type annotation
 
@@ -51,12 +51,12 @@ export class CalendarComponent implements OnInit {
 
     this.languageForm = new FormGroup({
       lang: new FormControl('en-en')
-    })
+    });
 
     this.activityForm = new FormGroup({
       time: new FormControl(),
       activity: new FormControl()
-    })
+    });
 
     this.dateOfToday = new Date();
     this.monthDisplayed = new Date();
@@ -87,27 +87,27 @@ export class CalendarComponent implements OnInit {
   initCalendar() {
     this.calendar = [];
 
-    let nextMonth = new Date(this.monthDisplayed);
+    const nextMonth = new Date(this.monthDisplayed);
     nextMonth.setMonth(this.monthDisplayed.getMonth() + 1);
 
-    let iteratorDay = new Date(this.monthDisplayed);
+    const iteratorDay = new Date(this.monthDisplayed);
     iteratorDay.setDate(1);
     iteratorDay.setDate(-iteratorDay.getDay() + this.startDay + 1);
 
     let holdingTemporaryArray: Object[];
     holdingTemporaryArray = [];
     while (iteratorDay.getDay() !== this.startDay || iteratorDay.getMonth() !== (nextMonth.getMonth())) {
-      let dateHolder = new Date(iteratorDay);
-      let obj = {
+      const dateHolder = new Date(iteratorDay);
+      const obj = {
         date: iteratorDay.toLocaleDateString(this.languageForm.value.lang, this.dayFormat),
         year: iteratorDay.getFullYear(),
         month: iteratorDay.getMonth(),
         weekday: iteratorDay.getDay(),
 
-        dateInternational: dateHolder.toLocaleDateString('en-en', {day:'numeric', year: 'numeric', month:'long'}),
-        dateLocal:dateHolder.toLocaleDateString(this.languageForm.value.lang, this.fullDayFormat),
+        dateInternational: dateHolder.toLocaleDateString('en-en', { day: 'numeric', year: 'numeric', month: 'long' }),
+        dateLocal: dateHolder.toLocaleDateString(this.languageForm.value.lang, this.fullDayFormat),
         fullDate: dateHolder
-      }
+      };
       holdingTemporaryArray.push(obj);
       iteratorDay.setDate(iteratorDay.getDate() + 1);
     }
@@ -131,19 +131,19 @@ export class CalendarComponent implements OnInit {
       alert('Please, fill in the values before adding');
       return;
     }
-    let obj = {
+    const obj = {
       day: this.selectedDay.fullDate,
       activities: {
         time: this.activityForm.value.time,
         activity: this.activityForm.value.activity
       }
-    }
+    };
     this.agenda.addAgenda(obj);
     this.activityForm.reset();
     this.updateUi();
-  };
+  }
 
-  getAgenda(){
+  getAgenda() {
     this.agendaCurrent = this.agenda.getAgenda();
   }
 
